@@ -1,0 +1,21 @@
+html, body, #root {
+    @apply h-full w-full m-0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+    @apply p-10;
+}
+
+main {
+    background: #2b2549;
+    @apply rounded-3xl w-full h-full relative;
+}
+
+div[data-overlay-container] {
+    @apply w-full h-full;
+}
