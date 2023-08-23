@@ -1,4 +1,5 @@
 import React from 'react';
+import OperateBar from '../OperateBar';
 
 interface IndexProps {
 	children?: React.ReactNode;
@@ -6,8 +7,8 @@ interface IndexProps {
 
 export default function Index({ children }: IndexProps) {
 	return (
-		<div className="w-full py-1 px-3 overflow-hidden" style={{ '--wails-draggable': 'drag' }}>
-			<img src="https://assets.codepen.io/3685267/react-streaming-dashboard-logo.jpg" alt="logo" />
+		<div className="w-full p-5 overflow-hidden" style={{ '--wails-draggable': 'drag' }}>
+			<OperateBar />
 		</div>
 	);
 }

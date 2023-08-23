@@ -1,0 +1,15 @@
+.operateBar {
+    @apply flex items-center gap-4;
+}
+
+.operateBar li {
+    @apply rounded-full w-4 h-4 flex items-center justify-center text-black cursor-pointer;
+}
+
+.operateBar li svg {
+    @apply hidden;
+}
+
+.operateBar li:hover svg {
+    @apply block;
+}

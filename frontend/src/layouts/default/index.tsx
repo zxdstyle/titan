@@ -14,7 +14,7 @@ export function App({ children }: { children: React.ReactNode }) {
 				<div className="flex flex-col h-full">
 					<TitleBar />
 
-					{children}
+					<div className="h-full w-full pl-12 pr-24">{children}</div>
 				</div>
 			</div>
 		</main>
