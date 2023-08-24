@@ -6,13 +6,11 @@ export default function Index() {
     const navigate = useNavigate();
 
     return (
-        <div className="absolute right-0 h-full p-5 bg-indigo-950 top-0 flex flex-col gap-5">
+        <div className="absolute right-0 h-full bg-indigo-950 top-0 flex flex-col p-5">
             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
 
-            <div>
-                <Button onClick={() => navigate('/plugins/crontab')}></Button>
-            </div>
+            <Button onClick={() => navigate('/plugins/crontab')} className="w-12 h-12"></Button>
         </div>
     );
 }
