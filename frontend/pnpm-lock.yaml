@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@micro-web/app':
+    specifier: ^0.2.0
+    version: 0.2.0
   antd:
     specifier: ^5.8.4
     version: 5.8.4(react-dom@18.2.0)(react@18.2.0)
@@ -350,6 +353,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@micro-web/app@0.2.0:
+    resolution: {integrity: sha512-Q3kklcTmh25iiNMGWpsqVasXfMGB0mpdRsmz5vIn/Ro/G1p/oloiOttKDic0qSz2ulDKSxLLXnO5hiVpmvU9Dg==}
+    dev: false
 
   /@rc-component/color-picker@1.4.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-vh5EWqnsayZa/JwUznqDaPJz39jznx/YDbyBuVJntv735tKXKwEUZZb2jYEldOg+NKWZwtALjGMrNeGBmqFoEw==}

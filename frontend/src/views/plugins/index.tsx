@@ -5,15 +5,12 @@ interface IndexProps {
 }
 
 export default function Index({ children }: IndexProps) {
-    const loadComp = async (url: string) => {
-        const res = await import(/* @vite-ignore  */ url);
-        console.log(res);
-    };
-    loadComp('https://cdn.liey.cn/plugin.js');
+    // @ts-ignore
+    const Comp = lazy(() => import(/* @vite-ignore */ 'https://cdn.liey.cn/plugin.mjs'));
     return (
         <div>
             <Suspense fallback={<span>loading</span>}>
-                <div />
+                <Comp></Comp>
             </Suspense>
         </div>
     );
