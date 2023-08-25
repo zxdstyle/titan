@@ -21,6 +21,10 @@ const router = createBrowserRouter([
                 element: <Plugin />,
             },
             {
+                path: '/plugins',
+                element: <Plugin />,
+            },
+            {
                 path: '/plugins/crontab',
                 element: <Crontab />,
             },
