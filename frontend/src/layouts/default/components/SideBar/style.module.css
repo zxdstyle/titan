@@ -1,0 +1,15 @@
+.sidebar {
+    @apply w-20 rounded-3xl shadow-xl bg-indigo-950 absolute -left-10 top-20 overflow-hidden z-50;
+}
+
+.sidebar ul {
+    @apply flex flex-col items-center justify-between h-full;
+}
+
+.sidebar ul li {
+    @apply h-20 w-20 flex items-center justify-center cursor-pointer text-primary-300;
+}
+
+.sidebar ul li.active, .sidebar ul li:hover {
+    @apply text-white bg-primary-400;
+}

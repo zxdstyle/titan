@@ -1,16 +1,16 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useRef } from 'react';
+import { MicroApp } from '@/components/TitanPlugin';
 
 interface IndexProps {
     children?: React.ReactNode;
 }
 
 export default function Index({ children }: IndexProps) {
-    // @ts-ignore
-    const Comp = lazy(() => import(/* @vite-ignore */ 'https://cdn.liey.cn/plugin.mjs'));
+    // const Comp = lazy(() => import(/* @vite-ignore */ 'http://localhost:4173/main.js'));
     return (
         <div>
             <Suspense fallback={<span>loading</span>}>
-                <Comp></Comp>
+                <MicroApp fallback={<span>loading</span>} entry="http://localhost:4173/main.js" />
             </Suspense>
         </div>
     );

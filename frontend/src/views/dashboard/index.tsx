@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ActivityCalendar, { Activity } from 'react-activity-calendar';
-import { Tooltip } from 'antd';
+import { Card, Tooltip } from 'antd';
 
 export default function Index() {
     const [data, setData] = useState<Array<Activity>>([]);
@@ -35,6 +35,9 @@ export default function Index() {
                     renderBlock={(block, activity) => <Tooltip title={`${activity.count} activities on ${activity.date}`}>{block}</Tooltip>}
                     style={{ marginLeft: '40px' }}
                 />
+            </div>
+            <div className="col-span-2">
+                <Card></Card>
             </div>
         </div>
     );

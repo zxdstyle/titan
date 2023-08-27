@@ -7,14 +7,12 @@ interface TitleProps {
 }
 
 export default function Title({ field, label }: TitleProps) {
-    const form = Form.useFormInstance();
-
-    const value = Form.useWatch(field, form);
+    const value = Form.useWatch(field);
 
     return (
         <div className="flex flex-col items-center gap-2">
             <p>{label}</p>
-            <Button className="w-12 h-12 p-1">{value}</Button>
+            <Button className="w-12 h-12 p-1">{value || '*'}</Button>
         </div>
     );
 }

@@ -37,7 +37,7 @@ export default function Option({ value, onChange }: OptionProps) {
             return;
         }
         if (e.target.value === 'range' && !Array.isArray(value)) {
-            onChange && onChange('0-59');
+            onChange && onChange('0-5');
             return;
         }
         if (e.target.value === 'gap' && value?.indexOf('/') === -1) {
@@ -57,6 +57,7 @@ export default function Option({ value, onChange }: OptionProps) {
 
             {optionType === 'range' && <RangeSlider onChange={onChange} value={value} />}
             {optionType === 'gap' && <Gap onChange={onChange} value={value} />}
+            {optionType === 'static' && <StaticPicker />}
         </div>
     );
 }
@@ -64,8 +65,15 @@ export default function Option({ value, onChange }: OptionProps) {
 interface RangeSliderProps extends OptionProps {
     children?: React.ReactNode;
 }
-function RangeSlider({ onChange }: RangeSliderProps) {
-    return <Slider range min={0} max={59} onChange={val => onChange && onChange(val.join('-'))} />;
+function RangeSlider({ onChange, value }: RangeSliderProps) {
+    const val = useMemo<[number, number]>(() => {
+        if (value) {
+            const values = value.split('-');
+            return [Number(values[0]), Number(values[1])];
+        }
+        return [0, 0];
+    }, [value]);
+    return <Slider range min={0} max={59} value={val} onChange={val => onChange && onChange(val.join('-'))} />;
 }
 
 interface GapProps extends OptionProps {
@@ -113,5 +121,35 @@ function Gap({ onChange, value }: GapProps) {
             <InputNumber min={0} max={59} value={end} onChange={handleEndChange} />
             <span>秒执行一次</span>
         </div>
+    );
+}
+
+interface StaticPickerProps extends OptionProps {
+    children?: React.ReactNode;
+    type?: string;
+}
+function StaticPicker({ type = 'year' }: StaticPickerProps) {
+    const items = useMemo(() => {
+        const values: Array<number> = [];
+        const now = new Date();
+        switch (type) {
+            case 'year':
+                for (let i = 0; i < 20; i++) {
+                    values.push(now.getFullYear());
+                    now.setFullYear(now.getFullYear() + 1);
+                }
+                break;
+        }
+        return values;
+    }, [type]);
+
+    return (
+        <ul className="border-primary-300 grid grid-cols-4 w-96 rounded">
+            {items.map(item => (
+                <li className="border-b border-r border-primary-300" key={item}>
+                    {item}
+                </li>
+            ))}
+        </ul>
     );
 }
