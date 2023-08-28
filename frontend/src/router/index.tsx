@@ -5,7 +5,6 @@ import DefaultLayout from '@/layouts/default';
 import Error from '@/views/error';
 
 import Plugin from '@/views/plugins';
-import Crontab from '@/views/plugins/crontab';
 
 const router = createBrowserRouter([
     {
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
             {
                 path: '/plugins',
                 element: <Plugin />,
-            },
-            {
-                path: '/plugins/crontab',
-                element: <Crontab />,
             },
         ],
         errorElement: <Error />,
