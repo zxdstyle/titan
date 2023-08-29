@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ActivityCalendar, { Activity } from 'react-activity-calendar';
-import { Card, Tooltip } from 'antd';
+import  Card from 'antd/es/card';
+import Tooltip from 'antd/es/tooltip';
 
 export default function Index() {
     const [data, setData] = useState<Array<Activity>>([]);

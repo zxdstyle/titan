@@ -16,11 +16,7 @@ const router = createBrowserRouter([
             //     element: <Dashboard />,
             // },
             {
-                path: '/plugins',
-                element: <Plugin />,
-            },
-            {
-                path: '/plugins',
+                path: '/plugins/:component',
                 element: <Plugin />,
             },
         ],

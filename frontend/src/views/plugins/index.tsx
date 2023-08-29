@@ -1,25 +1,23 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
+import plugins from './components';
 
-interface IndexProps {
-    children?: React.ReactNode;
+function getViewComponent(routeKey?: string) {
+    if (!routeKey) {
+        return <span></span>;
+    }
+
+    const Component = plugins[routeKey];
+
+    if (!Component) {
+        throw new Error(`路由“${routeKey}”没有对应的组件文件！`);
+    }
+
+    return <Component />;
 }
 
-interface Plugin {
-    name: string;
-    description: string;
-    component: React.FC;
-}
+export default function Index() {
+    const params = useParams();
 
-export default function Index({ children }: IndexProps) {
-    // @ts-ignore
-    const Comp = lazy(() => import(/* @vite-ignore */ 'http://localhost:5174/packages/index.tsx'));
-    // const Comp = lazy(() => import(/* @vite-ignore */ 'http://localhost:4173/assets/index-37de4fc2.js'));
-    console.log(Comp);
-    return (
-        <div>
-            <Suspense fallback={<span>loading</span>}>
-                <Comp />
-            </Suspense>
-        </div>
-    );
+    return <Suspense fallback={<span>loading</span>}>{getViewComponent(params.component)}</Suspense>;
 }

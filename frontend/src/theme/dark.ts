@@ -1,4 +1,5 @@
-import { ThemeConfig, theme } from 'antd';
+import theme from 'antd/es/theme';
+import { ThemeConfig } from 'antd/es/config-provider';
 
 const { darkAlgorithm } = theme;
 const dark: ThemeConfig = {

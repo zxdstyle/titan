@@ -8,14 +8,11 @@ export default defineConfig(() => {
     const srcPath = `${rootPath}/src`;
 
     return {
-        root: '../frontend',
         plugins: [react()],
         resolve: {
             alias: {
                 '~': rootPath,
                 '@': srcPath,
-                react: 'https://esm.sh/react@18.2.0',
-                'react-dom': 'https://esm.sh/react-dom@18.2.0',
             },
         },
         build: {
